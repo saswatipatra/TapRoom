@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import kombucha from '../assets/images/kombucha.jpg';
+import kombucha from '../assets/images/kombucha.jpg'
 
 function Keg(props){
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
-import Keg from './Keg';
+import React from 'react'
+import Keg from './Keg'
 
 var masterKegList = [
   {
@@ -17,7 +17,7 @@ var masterKegList = [
     brand: 'RSP',
     price: '$15'
   }
-];
+]
 
 function KegList(){
   return (
@@ -30,7 +30,7 @@ function KegList(){
           key={index}/>
       )}
     </div>
-  );
+  )
 }
 
 export default KegList

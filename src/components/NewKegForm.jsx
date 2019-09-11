@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function NewKegForm(){
   return (
@@ -18,7 +18,7 @@ function NewKegForm(){
         <button type='submit'>Help!</button>
       </form>
     </div>
-  );
+  )
 }
 
-export default NewKegForm;
+export default NewKegForm
