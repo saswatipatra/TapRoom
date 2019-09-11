@@ -1,0 +1,26 @@
+{
+  "name": "taproom",
+  "version": "1.0.0",
+  "description": "#### _A Web app for tracking kegs at a tap room - September 6, 2019_",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saswatipatra/TapRoom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saswatipatra/TapRoom/issues"
+  },
+  "homepage": "https://github.com/saswatipatra/TapRoom#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.4.0"
+  }
+}
