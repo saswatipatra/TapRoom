@@ -11,15 +11,15 @@ function HomePage() {
     fontSize: '36px'
   }
     
-   var headerPicStyle = {
-    marginRight: "auto",
-    marginLeft: "auto",
-    marginTop: "30px",
-    marginBottom: "30px",
-    display: "block",
+  var headerPicStyle = {
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    marginTop: '30px',
+    marginBottom: '30px',
+    display: 'block',
     hieght: '70%',
     width: '70%'
-  };
+  }
     
   return (
     <div>

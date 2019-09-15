@@ -1,36 +1,29 @@
 import React from 'react'
 import Keg from './Keg'
+import PropTypes from 'prop-types'
 
-var masterKegList = [
-  {
-    name: 'ABC',
-    brand: 'XYZ',
-    price: '$5'
-  },
-  {
-    name: 'DEF',
-    brand: 'uvw',
-    price: '$10'
-  },
-  {
-    name: 'GHI',
-    brand: 'RSP',
-    price: '$15'
-  }
-]
-
-function KegList(){
+function KegList(props){
   return (
     <div>
       <hr/>
-      {masterKegList.map((keg, index) =>
-        <Keg name={keg.name}
-          brand={keg.brand}
-          price={keg.price}
-          key={index}/>
-      )}
+      {Object.keys(props.kegList).map(function(kegId) {
+        var keg = props.kegList[kegId]
+        return <Keg names={keg.name}
+          location={keg.brand}
+          issue={keg.price}
+          currentRouterPath={props.currentRouterPath}
+          key={kegId}
+          kegId={kegId}
+          onKegSelection={props.onKegSelection}/>
+      })}
     </div>
   )
+}
+
+KegList.propTypes = {
+  kegList: PropTypes.object,
+  currentRouterPath: PropTypes.string,
+  onKegSelection: PropTypes.func
 }
 
 export default KegList
