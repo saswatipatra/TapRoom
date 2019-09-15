@@ -6,23 +6,21 @@ function KegList(props){
   return (
     <div>
       <hr/>
-      {Object.keys(props.kegList).map(function(kegId) {
-        var keg = props.kegList[kegId]
-        return <Keg names={keg.name}
-          location={keg.brand}
-          issue={keg.price}
-          currentRouterPath={props.currentRouterPath}
-          key={kegId}
-          kegId={kegId}
+      {props.kegList.map((keg) =>
+        <Keg name={keg.name}
+          brand={keg.brand}
+          description={keg.description}
+          flavor={keg.flavor}
+          price={keg.price}
+          key={keg.id}
           onKegSelection={props.onKegSelection}/>
-      })}
+      )}
     </div>
   )
 }
 
 KegList.propTypes = {
-  kegList: PropTypes.object,
-  currentRouterPath: PropTypes.string,
+  kegList: PropTypes.array,
   onKegSelection: PropTypes.func
 }
 

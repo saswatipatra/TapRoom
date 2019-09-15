@@ -1,48 +1,56 @@
 import React from 'react'
-import KegList from './KegList'
-import Header from './Header'
 import { Switch, Route } from 'react-router-dom'
+import HomePage from './HomePage'
+import KegList from './KegList'
+import EmployeeView from './EmployeeView'
 import NewKegForm from './NewKegForm'
 import Error404 from './Error404'
-import HomePage from './HomePage'
-import Admin from './Admin'
 import { v4 } from 'uuid'
-import NewKegControl from './NewKegControl'
-
+import Header from './Header'
 class App extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
-      masterKegList: {},
+      masterKegList: [],
       selectedKeg: null
     }
-    this.handleAddingNewKegToList = this.handleAddingNewKegToList.bind(this)
-    this.handleChangingSelectedKeg = this.handleChangingSelectedKeg.bind(this)
-  }
-  handleAddingNewKegToList(newKeg){
-    var newKegId = v4()
-    var newMasterKegList = Object.assign({}, this.state.masterKegList, {
-      [newKegId]: newKeg
-    })
-    newMasterKegList[newKegId].formattedWaitTime = newMasterKegList[newKegId].timeOpen.fromNow(true)
-    this.setState({masterKegList: newMasterKegList})
-  }
-  handleChangingSelectedKeg(kegId){
-    this.setState({selectedKeg: kegId})
+    this.styles = {
+      marginTop: '30px'
+    }
+    this.handleNewKegCreation = this.handleNewKegCreation.bind(this)
+    this.handleKegSelection = this.handleKegSelection.bind(this)
+    
   }
 
-  render(){
+  handleNewKegCreation(newKeg) {
+    const newKegId = v4()
+    const newMasterKegList = this.state.masterKegList.slice()
+    newKeg.id = newKegId
+    newMasterKegList.push(newKeg)
+    this.setState({ masterKegList: newMasterKegList })
+  }
+
+  handleKegSelection(keg) {
+    this.setState({ selectedKeg: keg })
+  }
+
+  
+  render() {
     return (
-      <div>
+      <div style={this.styles} className="container">
         <Header/>
         <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/KegList' render={()=><KegList kegList={this.state.masterKegList} />} />
-          <Route path='/Admin' render={(props)=><Admin kegList={this.state.masterKegList} currentRouterPath={props.location.pathname}
-            onKegSelection={this.handleChangingSelectedKeg}
-            selectedKeg={this.state.selectedKeg}/>}/>
-          <Route path='/newKeg' render={()=><NewKegControl onNewKegCreation={this.handleAddingNewKegToList} />} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/KegList" render={() =>
+            <KegList
+              kegList={this.state.masterKegList} />} />
+          <Route path="/EmployeeView" render={() =>
+            <EmployeeView
+              kegList={this.state.masterKegList}
+              onKegSelection={this.handleKegSelection} />} />
+          <Route path="/NewKegForm" render={() =>
+            <NewKegForm
+              onNewKegCreation={this.handleNewKegCreation} />} />
           <Route component={Error404} />
         </Switch>
       </div>

@@ -5,7 +5,7 @@ function Header(){
   return (
     <div>
       <h1>Welcom to Kombucha Tap Room</h1>
-      <Link to="/">Home Page</Link> | <Link to="/Admin">Employee Page</Link>
+      <Link to="/">Home Page</Link> | <Link to="/EmployeeView">Employee Page</Link>
     </div>
   )
 }
