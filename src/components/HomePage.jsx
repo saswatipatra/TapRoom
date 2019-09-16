@@ -5,8 +5,8 @@ import headerPic from '../assets/images/header.jpg'
 function HomePage() {
 
   var menuStyle = {
-    fontFamily: 'Courgette, cursive',
-    color: '#b9e567',
+    fontFamily: 'cursive',
+    color: 'Black',
     textAlign: 'center',
     fontSize: '36px'
   }
